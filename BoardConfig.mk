@@ -109,3 +109,8 @@ TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+
+# OrangeFox Recovery
+OF_MAINTAINER := Momo5418
+OF_FLASHLIGHT_ENABLE := false
+OF_MAINTAINER_AVATAR := device/meizu/M5Note/Maintainer.png
