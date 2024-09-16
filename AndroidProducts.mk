@@ -7,8 +7,3 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/omni_oppo6771.mk
-
-COMMON_LUNCH_CHOICES := \
-    omni_oppo6771-user \
-    omni_oppo6771-userdebug \
-    omni_oppo6771-eng
