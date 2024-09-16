@@ -113,5 +113,5 @@ TARGET_USES_LOGD := true
 # OrangeFox Recovery
 OF_MAINTAINER := Momo5418
 OF_FLASHLIGHT_ENABLE := false
-OF_MAINTAINER_AVATAR := device/meizu/M5Note/Maintainer.png
+OF_MAINTAINER_AVATAR := device/oppo/oppo6771/Maintainer.png
 OF_SKIP_FBE_DECRYPTION_SDKVERSION=29
