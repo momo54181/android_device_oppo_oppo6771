@@ -17,7 +17,7 @@ $(call inherit-product, device/oppo/PACM00/device.mk)
 
 PRODUCT_DEVICE := PACM00
 PRODUCT_NAME := omni_PACM00
-PRODUCT_BRAND := oppo
+PRODUCT_BRAND := OPPO
 PRODUCT_MODEL := PACM00
 PRODUCT_MANUFACTURER := oppo
 
