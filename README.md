@@ -1,4 +1,4 @@
-# Android device tree for oppo OPPO R15 (oppo6771)
+# Android device tree for oppo PACM00 (PACM00)
 
 ```
 #
