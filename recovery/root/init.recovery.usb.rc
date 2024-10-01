@@ -54,10 +54,7 @@ on property:sys.usb.config=none
     rm /config/usb_gadget/g1/configs/b.1/f1
     rm /config/usb_gadget/g1/configs/b.1/f2
     rm /config/usb_gadget/g1/configs/b.1/f3
-    rm /config/usb_gadget/g1/configs/b.1/f4
-    rm /config/usb_gadget/g1/configs/b.1/f5
-    #rmdir /config/usb_gadget/g1/functions/rndis.gs4
-    write /sys/devices/platform/mt_usb/saving 0
+    rmdir /config/usb_gadget/g1/functions/rndis.gs4
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=adb
