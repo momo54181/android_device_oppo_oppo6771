@@ -1,6 +1,13 @@
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.ffs.aio_compat 1
+    #ADD By Momo5418
+    #create mountpoint for /mnt/vendor/persist partition
+    mkdir /mnt/vendor/persist 0771 system system
+
+    symlink /mnt/vendor/persist /vendor/persist
+    #symlink /vendor/lib64/hw/libMcGatekeeper.so   /vendor/lib64/hw/gatekeeper.${ro.product.board}.so
+    #symlink /vendor/lib64/hw/libMcTeeKeymaster.so /vendor/lib64/hw/keystore.${ro.hardware}.so
 
 on fs && property:ro.debuggable=0
     # distinguish USB shoulde connect or not, i.e. CDP vs SDP
@@ -22,19 +29,41 @@ on post-fs
     symlink /dev/block/platform/bootdevice/by-name/preloader_a /dev/block/platform/bootdevice/by-name/preloader_ufs_a
     symlink /dev/block/platform/bootdevice/by-name/preloader_b /dev/block/platform/bootdevice/by-name/preloader_ufs_b
     
+    #Add By Momo5418
+    chown system system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+
+    # We restorecon /mnt/vendor/persist to set SEPolicy label.
+    restorecon /mnt/vendor/persist
+
+    # Create mcRegistry to store failure record
+    mkdir /mnt/vendor/persist/mcRegistry 0771 system system
+
+    write /proc/bootprof "MOBICORE: Starting mcDriverDaemon"
+    start mobicore
+
+on post-fs-data
+    # Create /data/vendor/key_provisioning dir and get proper encryption policy installed
+    # Key Installation
+    mkdir /data/vendor/key_provisioning 0771 system system
+
 #Add for OPPO FBE By Momo5418
 service hal_cryptoeng_oppo /vendor/lib64/vendor.oppo.hardware.cryptoeng@1.0-service
+    user root
+    group root input sdcard_rw sdcard_r
+    disabled
     seclabel u:r:recovery:s0
 
 service keymaster-3-0 /vendor/lib64/android.hardware.keymaster@3.0-service.trustonic
+    disabled
+    user root
+    group root drmrpc
     seclabel u:r:recovery:s0
 
-service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
-    writepid /dev/cpuset/system-background/tasks
-    seclabel u:r:recovery:s0
-
-service servicemanager /vendor/lib64/servicemanager
-    writepid /dev/cpuset/system-background/tasks
+service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
+    disabled
+    user root
+    group root
     seclabel u:r:recovery:s0
 
 service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry \
@@ -57,6 +86,7 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 
 on property:ro.crypto.state=encrypted
     start keymaster-3-0
+    start gatekeeper-1-0
 
 on property:ro.crypto.state=unsupported
     stop mobicore
@@ -64,6 +94,7 @@ on property:ro.crypto.state=unsupported
     stop hwservicemanager
     stop keymaster-3-0
     stop hal_cryptoeng_oppo
+    stop gatekeeper-1-0
 
 on property:ro.crypto.state=unencrypted
     stop mobicore
@@ -71,6 +102,7 @@ on property:ro.crypto.state=unencrypted
     stop hwservicemanager
     stop keymaster-3-0
     stop hal_cryptoeng_oppo
+    stop gatekeeper-1-0
 
 on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
     stop mobicore
@@ -78,4 +110,4 @@ on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
     stop hwservicemanager
     stop keymaster-3-0
     stop hal_cryptoeng_oppo
-
+    stop gatekeeper-1-0
