@@ -112,7 +112,7 @@ jobs:
         cd android-recovery
         git config --global user.name "lazycodebuilder"
         git config --global user.email "154446636+lazycodebuilder@users.noreply.github.com"
-        repo init --depth=1 -u https://github.com/PitchBlackRecoveryProject/manifest_pb.git -b ${{ github.event.inputs.MANIFEST_BRANCH }}
+        repo init --depth=1 -u https://github.com/momo54181/manifest_pb.git -b ${{ github.event.inputs.MANIFEST_BRANCH }}
 
     - name: Repo Sync
       run: |
