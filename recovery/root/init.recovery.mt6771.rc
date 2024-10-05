@@ -50,7 +50,7 @@ on post-fs-data
     mkdir /data/vendor/key_provisioning 0771 system system
 
 #Add for OPPO FBE By Momo5418
-service hal_cryptoeng_oppo /vendor/lib64/vendor.oppo.hardware.cryptoeng@1.0-service
+service hal_cryptoeng_oppo /vendor/bin/vendor.oppo.hardware.cryptoeng@1.0-service
     user root
     group root input sdcard_rw sdcard_r
     disabled
@@ -67,6 +67,13 @@ service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
     user root
     group root
     seclabel u:r:recovery:s0
+
+service keymaster_attestation-1-1 /vendor/bin/vendor.mediatek.hardware.keymaster_attestation@1.1-service
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0    
+    
 
 service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry \
     -r /vendor/app/mcRegistry/06090000000000000000000000000000.drbin \
@@ -87,6 +94,7 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
     seclabel u:r:recovery:s0
 
 on property:ro.crypto.state=encrypted
+    start hal_cryptoeng_oppo
     start keymaster-3-0
     start gatekeeper-1-0
 
