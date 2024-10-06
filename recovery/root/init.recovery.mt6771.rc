@@ -5,10 +5,8 @@ on init
     setprop sys.usb.ffs.aio_compat 1
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     mkdir /mnt/vendor/persist 0771 system system
-    mkdir /mnt/vendor/persist/mcRegistry
     symlink /vendor/lib64/hw/libMcGatekeeper.so   /vendor/lib64/hw/gatekeeper.${ro.product.board}.so
     symlink /vendor/lib64/hw/libMcTeeKeymaster.so /vendor/lib64/hw/keystore.${ro.hardware}.so
-    symlink /vendor/lib64/hw/libSoftGatekeeper.so /vendor/lib64/hw/gatekeeper.default.so
 
 on fs
     install_keyring
@@ -23,7 +21,7 @@ service hal_cryptoeng_oppo /vendor/bin/vendor.oppo.hardware.cryptoeng@1.0-servic
     disabled
     seclabel u:r:recovery:s0
 
-service keymaster-3-0 /vendor/lib64/android.hardware.keymaster@3.0-service.trustonic
+service keymaster-3-0 /vendor/bin/android.hardware.keymaster@3.0-service.trustonic
     disabled
     user root
     group root drmrpc
@@ -35,14 +33,6 @@ service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
     group root
     seclabel u:r:recovery:s0
 
-service keymaster_attestation-1-1 /vendor/bin/vendor.mediatek.hardware.keymaster_attestation@1.1-service
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0   
-
-#service gatekeeperd /system/bin/gatekeeperd /data/misc/gatekeeperd
-  #  seclabel u:r:recovery:s0
     
 service set_permissive /system/bin/set_permissive.sh
     user root
@@ -52,11 +42,9 @@ service set_permissive /system/bin/set_permissive.sh
     seclabel u:r:recovery:s0
 
 on property:hwservicemanager.ready=true
-    start hal_cryptoeng_oppo
+    #start hal_cryptoeng_oppo
     start keymaster-3-0
-    #start gatekeeperd
     start gatekeeper-1-0
-    start keymaster_attestation-1-1
 
 on property:ro.crypto.state=unsupported
     stop mobicore
