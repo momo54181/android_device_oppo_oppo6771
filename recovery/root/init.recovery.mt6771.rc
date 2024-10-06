@@ -44,10 +44,19 @@ service keymaster_attestation-1-1 /vendor/bin/vendor.mediatek.hardware.keymaster
 service gatekeeperd /system/bin/gatekeeperd /data/misc/gatekeeper
     seclabel u:r:recovery:s0
     
+service set_permissive /system/bin/set_permissive.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
 on property:ro.crypto.state=encrypted
     start hal_cryptoeng_oppo
     start keymaster-3-0
     start gatekeeper-1-0
+    start gatekeeperd
+    start keymaster_attestation-1-1
 
 on property:ro.crypto.state=unsupported
     stop mobicore
