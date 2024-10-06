@@ -54,7 +54,7 @@ service set_permissive /system/bin/set_permissive.sh
 on property:hwservicemanager.ready=true
     start hal_cryptoeng_oppo
     start keymaster-3-0
-    start gatekeeperd
+    #start gatekeeperd
     start gatekeeper-1-0
     start keymaster_attestation-1-1
 
