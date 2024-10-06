@@ -41,7 +41,7 @@ on property:ro.crypto.state=unsupported
     stop servicemanager
     stop hwservicemanager
     stop keymaster-3-0
-    stop hal_cryptoeng_oppo
+    #stop hal_cryptoeng_oppo
     stop gatekeeper-1-0
 
 on property:ro.crypto.state=unencrypted
@@ -49,7 +49,7 @@ on property:ro.crypto.state=unencrypted
     stop servicemanager
     stop hwservicemanager
     stop keymaster-3-0
-    stop hal_cryptoeng_oppo
+    #stop hal_cryptoeng_oppo
     stop gatekeeper-1-0
 
 on property:twrp.decrypt.done=true
@@ -57,6 +57,5 @@ on property:twrp.decrypt.done=true
     stop servicemanager
     stop hwservicemanager
     stop keymaster-3-0
-    stop hal_cryptoeng_oppo
+    #stop hal_cryptoeng_oppo
     stop gatekeeper-1-0
-    start set_permissive
