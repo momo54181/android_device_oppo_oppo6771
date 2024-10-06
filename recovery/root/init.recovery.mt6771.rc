@@ -51,11 +51,11 @@ service set_permissive /system/bin/set_permissive.sh
     oneshot
     seclabel u:r:recovery:s0
 
-on property:ro.crypto.state=encrypted
+on property:hwservicemanager.ready=true
     start hal_cryptoeng_oppo
     start keymaster-3-0
-    start gatekeeper-1-0
     start gatekeeperd
+    start gatekeeper-1-0
     start keymaster_attestation-1-1
 
 on property:ro.crypto.state=unsupported
@@ -74,10 +74,11 @@ on property:ro.crypto.state=unencrypted
     stop hal_cryptoeng_oppo
     stop gatekeeper-1-0
 
-on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
+on property:twrp.decrypt.done=true
     stop mobicore
     stop servicemanager
     stop hwservicemanager
     stop keymaster-3-0
     stop hal_cryptoeng_oppo
     stop gatekeeper-1-0
+    start set_permissive
