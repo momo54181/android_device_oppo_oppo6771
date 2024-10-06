@@ -41,8 +41,8 @@ service keymaster_attestation-1-1 /vendor/bin/vendor.mediatek.hardware.keymaster
     disabled
     seclabel u:r:recovery:s0   
 
-service gatekeeperd /system/bin/gatekeeperd /data/misc/gatekeeperd
-    seclabel u:r:recovery:s0
+#service gatekeeperd /system/bin/gatekeeperd /data/misc/gatekeeperd
+  #  seclabel u:r:recovery:s0
     
 service set_permissive /system/bin/set_permissive.sh
     user root
