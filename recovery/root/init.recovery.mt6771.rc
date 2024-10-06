@@ -7,6 +7,9 @@ on init
     symlink /vendor/lib64/hw/libMcGatekeeper.so   /vendor/lib64/hw/gatekeeper.${ro.product.board}.so
     symlink /vendor/lib64/hw/libMcTeeKeymaster.so /vendor/lib64/hw/keystore.${ro.hardware}.so
     symlink /vendor/lib64/hw/libSoftGatekeeper.so /vendor/lib64/hw/gatekeeper.default.so
+
+on fs
+    install_keyring
     write /sys/class/power_supply/usb/otg_switch 1
 
 on post-fs
