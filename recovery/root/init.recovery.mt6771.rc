@@ -32,7 +32,7 @@ service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
 
 
 on property:ro.crypto.state=encrypted
-    #start hal_cryptoeng_oppo
+    start hal_cryptoeng_oppo
     start keymaster-3-0
     start gatekeeper-1-0
 
