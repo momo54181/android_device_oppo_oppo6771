@@ -1,5 +1,4 @@
 
-#ro.vndk.version=29
 ro.mtk_tee_gp_support=1
 ro.mtk_microtrust_tee_support=1
 ro.vendor.mtk_tee_gp_support=1
@@ -14,4 +13,3 @@ ro.sys.usb.bicr=no
 ro.treble.enabled=true
 persist.service.adb.enable=1
 persist.service.debuggable=1
-persist.sys.usb.config=mtp,adb
