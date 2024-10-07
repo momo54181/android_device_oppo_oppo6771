@@ -54,7 +54,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	# Enable support for Realme oZip decryption
 	export OF_SUPPORT_OZIP_DECRYPTION=1
     # export OF_SKIP_FBE_DECRYPTION_SDKVERSION= 30
-    export OF_DEFAULT_KEYMASTER_VERSION=3.0
+    #export OF_DEFAULT_KEYMASTER_VERSION=3.0
     export OF_FLASHLIGHT_ENABLE=0
 
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
