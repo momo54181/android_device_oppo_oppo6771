@@ -89,6 +89,7 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 on property:ro.crypto.state=encrypted
     start vendor.keymaster-3-0-trustonic
     start gatekeeper-1-0
+    start hal_cryptoeng_oppo
 
 
 on property:ro.crypto.state=unsupported
@@ -97,6 +98,7 @@ on property:ro.crypto.state=unsupported
     stop hwservicemanager
     stop vendor.keymaster-3-0-trustonic
     stop gatekeeper-1-0
+    stop hal_cryptoeng_oppo
 
 on property:ro.crypto.state=unencrypted
     stop mobicore
@@ -104,6 +106,7 @@ on property:ro.crypto.state=unencrypted
     stop hwservicemanager
     stop vendor.keymaster-3-0-trustonic
     stop gatekeeper-1-0
+    stop hal_cryptoeng_oppo
 
 on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
     stop mobicore
@@ -111,3 +114,4 @@ on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
     stop hwservicemanager
     stop vendor.keymaster-3-0-trustonic
     stop gatekeeper-1-0
+    stop hal_cryptoeng_oppo
