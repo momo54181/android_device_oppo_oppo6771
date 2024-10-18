@@ -24,8 +24,12 @@ on post-fs-data
     # Key Installation
     mkdir /data/vendor/key_provisioning 0771 system system
 
-
-
+#Add for OPPO FBE By Momo5418
+service hal_cryptoeng_oppo /vendor/bin/vendor.oppo.hardware.cryptoeng@1.0-service
+    user root
+    group root input sdcard_rw sdcard_r
+    disabled
+    seclabel u:r:recovery:s0
 
 service vendor.keymaster-3-0-trustonic /vendor/bin/hw/android.hardware.keymaster@3.0-service.trustonic
     disabled
@@ -61,7 +65,6 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 	-r /vendor/app/mcRegistry/0f5eed3c3b5a47afacca69a84bf0efad.drbin \
 	-r /vendor/app/mcRegistry/07060000000000000000000000007169.drbin \
 	-r /vendor/app/mcRegistry/07407000000000000000000000000000.drbin \
-	-r /vendor/app/mcRegistry/04020000000000000000000000000000.drbin \
 	-r /vendor/app/mcRegistry/9073f03a9618383bb1856eb3f990babd.drbin
     seclabel u:r:recovery:s0
 
@@ -81,7 +84,6 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 # 090b0000000000000000000000000000.drbin : IRIS_I2C
 # 0f5eed3c3b5a47afacca69a84bf0efad.drbin : isp
 # 07407000000000000000000000000000.drbin : sensor
-# 04020000000000000000000000000000.drbin : fpc
 # 06090000000000000000000000000000.drbin : drm keyinstall
 
 on property:ro.crypto.state=encrypted
