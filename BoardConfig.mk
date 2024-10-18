@@ -23,7 +23,7 @@ TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
-TARGET_2ND_CPU_VARIANT_RUNTIME := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
 
 # APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true
@@ -90,16 +90,8 @@ PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
-# TWRP Configuration
-TW_THEME := portrait_hdpi
-TW_EXTRA_LANGUAGES := true
-TW_SCREEN_BLANK_ON_BOOT := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_USE_TOOLBOX := true
-
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
@@ -116,18 +108,9 @@ TW_INCLUDE_NTFS_3G := true
 TW_DEVICE_VERSION := R15-A10 by Momo5418
 TW_OZIP_DECRYPT_KEY= 172B3E14E46F3CE13E2B5121CBDC4321
 
-TW_RECOVERY_ADDITIONAL_RELINK_FILES += \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/hw/android.hardware.keymaster@3.0-impl.so \
-    $(TARGET_OUT_VENDOR_EXECUTABLES)/hw/android.hardware.keymaster@3.0-service \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster3device.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
-
-# MTK Hardware
-BOARD_HAS_MTK_HARDWARE := true
-BOARD_USES_MTK_HARDWARE := true
 
 # Debug
 TWRP_INCLUDE_LOGCAT := true
