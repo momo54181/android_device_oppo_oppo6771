@@ -72,16 +72,3 @@ subsystem sound
 /sys/devices/virtual/usb_composite/*   enable      0664  root   system
 /sys/devices/system/cpu/cpu*   cpufreq/scaling_max_freq   0664  system system
 /sys/devices/system/cpu/cpu*   cpufreq/scaling_min_freq   0664  system system
-
-/dev/block/bootdevice/by-name/opporeserve1               0660   system     system
-/dev/block/sdf6   0660   system     system
-/dev/block/by-name/opporeserve1               0660   system     system
-#Xuefeng.Peng@PSW.AD.Storage.ReservePartition.1207580, 2018/10/17, Add for new reserve partition
-/dev/block/mmcblk0p4 0660 system system
-/dev/block/platform/bootdevice/by-name/reserve4               0660   system     system
-
-#Jinke.zhou modify for engineermode to access by-name/reserve_exp1
-/dev/block/platform/bootdevice/by-name/reserve_exp1              0660   system     radio
-
-#Canjie.Zheng add for critical log
-/dev/block/platform/bootdevice/by-name/reserve2               0660   system     system
