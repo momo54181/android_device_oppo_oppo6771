@@ -25,12 +25,9 @@ service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
     seclabel u:r:recovery:s0
 
 
-#on property:ro.crypto.state=encrypted
-on property:hwservicemanager.ready=true
+on property:ro.crypto.state=encrypted
     start keymaster-3-0
     start gatekeeper-1-0
-    start hal_cryptoeng_oppo
-
 
 on property:ro.crypto.state=unsupported
     stop mobicore
