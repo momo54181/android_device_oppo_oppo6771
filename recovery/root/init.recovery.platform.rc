@@ -52,3 +52,6 @@ on property:twrp.decrypt.done=true
     stop keymaster-3-0
     stop gatekeeper-1-0
     stop hal_cryptoeng_oppo
+
+on boot
+    start hal_cryptoeng_oppo
