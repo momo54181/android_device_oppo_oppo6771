@@ -114,3 +114,32 @@ TARGET_USES_LOGD := true
 # MTK Hardware
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_USES_MTK_HARDWARE := true
+
+#SHRP Device Specific Properties
+
+# Path of your SHRP Tree
+SHRP_PATH := device/oppo/PACM00
+
+# Maintainer name *
+SHRP_MAINTAINER := Momo5418
+
+#Official
+SHRP_OFFICIAL=true
+
+# Device codename *
+SHRP_DEVICE_CODE := PACM00
+
+# Recovery Type (It can be treble,normal,SAR) [Only for About Section] *
+SHRP_REC_TYPE := Treble
+
+# Recovery Type (It can be A/B or A_only) [Only for About Section] *
+SHRP_DEVICE_TYPE := A_only
+
+SHRP_EXPRESS := true
+SHRP_DARK := true
+SHRP_EDL_MODE := 0
+SHRP_EXTERNAL := /external_sd
+SHRP_INTERNAL := /sdcard
+SHRP_OTG := /usb-otg
+SHRP_FLASH := 1
+SHRP_REC := /dev/block/platform/bootdevice/by-name/recovery
