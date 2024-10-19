@@ -37,5 +37,5 @@
 /dtbo                     emmc     /dev/block/platform/bootdevice/by-name/dtbo          flags=display=dtbo
 /otp                      emmc     /dev/block/platform/bootdevice/by-name/otp           flags=display=otp
 /external_sd              vfat     /dev/block/mmcblk1p1                                 flags=display="Micro SDCard";storage;wipeingui;removable
-/usbotg			          auto     /dev/block/sda1			/dev/block/sda				flags=display="Usb-Otg";storage;wipeingui;removable
+/usb-otg                  auto     /dev/block/sda1         /dev/block/sda               flags=display="Usb-Otg";storage;wipeingui;removable
 /reserve2                 emmc     /dev/block/platform/bootdevice/by-name/reserve2      flags=display=reserve2
