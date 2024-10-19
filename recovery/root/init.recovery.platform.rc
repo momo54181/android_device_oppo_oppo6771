@@ -27,7 +27,7 @@ service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
 
 on property:ro.crypto.state=encrypted
     start keymaster-3-0
-    start gatekeeper-1-0
+    #start gatekeeper-1-0
 
 on property:ro.crypto.state=unsupported
     stop mobicore
