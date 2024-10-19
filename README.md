@@ -11,8 +11,8 @@
 4. Flash GSI or Custom ROMs
 5. Screenshots now renders correct color
 6. MTP
-7. OTG Works
-Faild:
+7. OTG Works  
+Faild:  
 1. Decryption
 
 ## Downloads
