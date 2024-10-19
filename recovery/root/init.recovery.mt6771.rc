@@ -4,7 +4,6 @@ import /init.recovery.trustonic.rc
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.ffs.aio_compat 1
-    start hal_cryptoeng_oppo
 
 on fs
     write /sys/class/power_supply/usb/otg_switch 1
