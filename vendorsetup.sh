@@ -48,7 +48,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	
 # Device Information.
 	export FOX_ARCH=arm64
-	export FOX_VARIANT="A10_FDE"
+	export FOX_VARIANT="10.0"
 	export TARGET_DEVICE_ALT="PACM00" # I am not what are the over possible names.
     export OF_KEEP_DM_VERITY_FORCED_ENCRYPTION=1
 	# Enable support for Realme oZip decryption
