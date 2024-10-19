@@ -25,11 +25,11 @@ on post-fs-data
     mkdir /data/vendor/key_provisioning 0771 system system
 
 #Add for OPPO FBE By Momo5418
-service hal_cryptoeng_oppo /vendor/bin/vendor.oppo.hardware.cryptoeng@1.0-service
-    user root
-    group root drmrpc
-    disabled
-    seclabel u:r:recovery:s0
+#service hal_cryptoeng_oppo /vendor/bin/vendor.oppo.hardware.cryptoeng@1.0-service
+#    user root
+#    group root drmrpc sdcard_rw sdcard_r
+#    disabled
+#    seclabel u:r:recovery:s0
 
 service vendor.keymaster-3-0-trustonic /vendor/bin/hw/android.hardware.keymaster@3.0-service.trustonic
     disabled
@@ -86,11 +86,10 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 # 07407000000000000000000000000000.drbin : sensor
 # 06090000000000000000000000000000.drbin : drm keyinstall
 
-#on property:ro.crypto.state=encrypted
 on property:hwservicemanager.ready=true
     start vendor.keymaster-3-0-trustonic
     start gatekeeper-1-0
-    start hal_cryptoeng_oppo
+    #start hal_cryptoeng_oppo
 
 
 on property:ro.crypto.state=unsupported
