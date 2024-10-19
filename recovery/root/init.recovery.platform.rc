@@ -1,6 +1,6 @@
 
 
-#Add for OPPO FBE By Momo5418
+#Add for OPPO FDE By Momo5418
 service hal_cryptoeng_oppo /vendor/bin/vendor.oppo.hardware.cryptoeng@1.0-service
     user root
     group root drmrpc
@@ -18,6 +18,8 @@ service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
     writepid /dev/cpuset/system-background/tasks
     seclabel u:r:recovery:s0
 
+on boot
+    start hal_cryptoeng_oppo
 
 on property:ro.crypto.state=encrypted
     start keymaster-3-0
@@ -27,7 +29,6 @@ on property:ro.crypto.state=unsupported
     stop servicemanager
     stop hwservicemanager
     stop keymaster-3-0
-    stop gatekeeper-1-0
     stop hal_cryptoeng_oppo
 
 on property:ro.crypto.state=unencrypted
@@ -35,7 +36,6 @@ on property:ro.crypto.state=unencrypted
     stop servicemanager
     stop hwservicemanager
     stop keymaster-3-0
-    stop gatekeeper-1-0
     stop hal_cryptoeng_oppo
 
 on property:twrp.decrypt.done=true
@@ -43,8 +43,4 @@ on property:twrp.decrypt.done=true
     stop servicemanager
     stop hwservicemanager
     stop keymaster-3-0
-    stop gatekeeper-1-0
     stop hal_cryptoeng_oppo
-
-on boot
-    start hal_cryptoeng_oppo

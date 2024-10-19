@@ -39,7 +39,6 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 on init
     #create mountpoint for /mnt/vendor/persist partition
     mkdir /mnt/vendor/persist 0771 system system
-    symlink /vendor/lib64/hw/libMcGatekeeper.so   /vendor/lib64/hw/gatekeeper.${ro.product.board}.so
     symlink /vendor/lib64/hw/libMcTeeKeymaster.so /vendor/lib64/hw/keystore.${ro.hardware}.so
 
 
