@@ -9,6 +9,7 @@ on init
 on fs
     write /sys/class/power_supply/usb/otg_switch 1
     install_keyring
+    symlink /system/etc /etc
 on fs && property:ro.debuggable=0
     # distinguish USB shoulde connect or not, i.e. CDP vs SDP
     # write /sys/class/udc/musb-hdrc/device/cmode 2
