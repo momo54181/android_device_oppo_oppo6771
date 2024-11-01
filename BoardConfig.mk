@@ -87,7 +87,7 @@ VENDOR_SECURITY_PATCH := 2021-08-01
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
-PLATFORM_VERSION := 10.0
+PLATFORM_VERSION := 10.0.0
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
@@ -106,10 +106,6 @@ TW_OZIP_DECRYPT_KEY := 172B3E14E46F3CE13E2B5121CBDC4321
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
-TW_CRYPTO_FS_TYPE := "ext4"
-TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/bootdevice/by-name/userdata"
-TW_CRYPTO_MNT_POINT := "/data"
-TW_CRYPTO_FS_OPTIONS := "noatime,nosuid,nodev,noauto_da_alloc,errors=panic,async_discard"
 
 # Debug
 TWRP_INCLUDE_LOGCAT := true
