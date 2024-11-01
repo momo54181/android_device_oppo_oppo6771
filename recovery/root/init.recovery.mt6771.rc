@@ -8,7 +8,7 @@ on init
 on fs
     # Create a more standard /dev/block layout for our scripts
     symlink /dev/block/platform/bootdevice/by-name /dev/block/by-name
-    # Add OPPO OTG
+
     write /sys/class/power_supply/usb/otg_switch 1
 
 on fs && property:ro.debuggable=0
