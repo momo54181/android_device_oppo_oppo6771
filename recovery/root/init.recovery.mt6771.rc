@@ -4,10 +4,6 @@ import /init.recovery.platform.rc
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.ffs.aio_compat 1
-    setprop prepdecrypt.loglevel 2
-    mkdir /mnt/vendor/persist/mcRegistry
-    symlink /vendor/lib64/hw/libMcTeeKeymaster.so /vendor/lib64/hw/keystore.${ro.hardware}.so
-
 
 on fs
     write /sys/class/power_supply/usb/otg_switch 1
