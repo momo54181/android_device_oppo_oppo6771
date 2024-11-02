@@ -107,9 +107,7 @@ TW_OZIP_DECRYPT_KEY := 172B3E14E46F3CE13E2B5121CBDC4321
 # Crypto
 TW_INCLUDE_CRYPTO := true
 TW_CRYPTO_USE_SYSTEM_VOLD := true
-TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/bootdevice/by-name/userdata"
-TW_CRYPTO_MNT_POINT := "/data"
-TW_CRYPTO_FS_OPTIONS := "noatime,nosuid,nodev,noauto_da_alloc,discard,errors=panic"
+TARGET_HW_DISK_ENCRYPTION := true
 
 # Debug
 TWRP_INCLUDE_LOGCAT := true
