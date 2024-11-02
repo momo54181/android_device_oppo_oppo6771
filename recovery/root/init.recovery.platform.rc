@@ -3,15 +3,8 @@
 #Add for OPPO FDE By Momo5418
 
 service keymaster-3-0 /vendor/bin/hw/android.hardware.keymaster@3.0-service.trustonic
-    disabled
     user root
     group root drmrpc
-    seclabel u:r:recovery:s0
-
-service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
-    disabled
-    user root
-    group root
     seclabel u:r:recovery:s0
 
 service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
