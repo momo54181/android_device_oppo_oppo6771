@@ -6,13 +6,13 @@
 **Working**:
 
 
-2. Backup and Restore
+2. Backup 和 Restore
 3. Flash Stock ROM
 4. Flash GSI or Custom ROMs
 5. Screenshots now renders correct color
-6. MTP
-7. OTG Works
-Faild:
+6. MTP ADB
+7. OTG Works  
+Faild:  
 1. Decryption
 
 ## Downloads
