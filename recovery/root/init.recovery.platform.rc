@@ -42,11 +42,6 @@ service keymaster_attestation-1-1 /vendor/bin/hw/vendor.mediatek.hardware.keymas
     user system
     group system
 
-service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
-    user root
-    group root
-    seclabel u:r:recovery:s0
-
 service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     class hal
     user system
@@ -93,4 +88,31 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 # 07407000000000000000000000000000.drbin : sensor
 # 06090000000000000000000000000000.drbin : drm keyinstall
 
+on property:ro.crypto.state=encrypted
+    start vendor.gatekeeper-1-0
+    start keymaster_attestation-1-1
+    start keymaster-3-0
 
+on property:ro.crypto.state=unsupported
+    stop mobicore
+    stop servicemanager
+    stop hwservicemanager
+    stop keymaster-3-0
+    stop vendor.gatekeeper-1-0
+    stop keymaster_attestation-1-1
+
+on property:ro.crypto.state=unencrypted
+    stop mobicore
+    stop servicemanager
+    stop hwservicemanager
+    stop keymaster-3-0
+    stop vendor.gatekeeper-1-0
+    stop keymaster_attestation-1-1
+
+on property:twrp.decrypt.done=true
+    stop mobicore
+    stop servicemanager
+    stop hwservicemanager
+    stop keymaster-3-0
+    stop vendor.gatekeeper-1-0
+    stop keymaster_attestation-1-1
