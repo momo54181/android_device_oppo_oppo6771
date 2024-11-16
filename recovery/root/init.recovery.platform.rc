@@ -8,7 +8,6 @@ on init
     symlink /vendor/lib64/hw/libSoftGatekeeper.so /vendor/lib64/hw/gatekeeper.default.so
 
 on post-fs
-    setprop prepdecrypt.loglevel 2
     
     chown system system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
@@ -39,17 +38,15 @@ service keymaster-3-0 /vendor/bin/hw/android.hardware.keymaster@3.0-service.trus
 service keymaster_attestation-1-1 /vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
     interface vendor.mediatek.hardware.keymaster_attestation@1.1::IKeymasterDevice default
     disabled
-    class hal
-    user system
-    group system
+    user root
+    group root drmrpc
     seclabel u:r:recovery:s0
 
 
 service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     disabled
-    class hal
-    user system
-    group system
+    user root
+    group root drmrpc
     seclabel u:r:recovery:s0
 
 service hal_cryptoeng_oppo /vendor/bin/vendor.oppo.hardware.cryptoeng@1.0-service
