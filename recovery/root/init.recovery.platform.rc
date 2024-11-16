@@ -41,17 +41,17 @@ service keymaster_attestation-1-1 /vendor/bin/hw/vendor.mediatek.hardware.keymas
     class hal
     user system
     group system
+    seclabel u:r:recovery:s0
     disabled
 
 service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     class hal
     user system
     group system
+    seclabel u:r:recovery:s0
     disabled
 
-service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
-    user root
-    writepid /dev/cpuset/system-background/tasks
+service hal_cryptoeng_oppo /sbin/vendor.oppo.hardware.cryptoeng@1.0-service
     seclabel u:r:recovery:s0
 
 service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry \
