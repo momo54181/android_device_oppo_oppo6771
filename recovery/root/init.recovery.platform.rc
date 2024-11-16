@@ -91,7 +91,7 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 # 07407000000000000000000000000000.drbin : sensor
 # 06090000000000000000000000000000.drbin : drm keyinstall
 
-on property:recovery.service=1
+on property:ro.crypto.state=encrypted
     start vendor.gatekeeper-1-0
     start keymaster_attestation-1-1
     start hal_cryptoeng_oppo
