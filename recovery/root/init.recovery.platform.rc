@@ -4,6 +4,8 @@ on init
 
     symlink /mnt/vendor/persist /vendor/persist
     symlink /vendor/lib64/hw/libMcTeeKeymaster.so /vendor/lib64/hw/keystore.${ro.hardware}.so
+    symlink /vendor/lib64/hw/libMcGatekeeper.so   /vendor/lib64/hw/gatekeeper.${ro.product.board}.so
+    symlink /vendor/lib64/hw/libSoftGatekeeper.so /vendor/lib64/hw/gatekeeper.default.so
 
 on post-fs
     setprop prepdecrypt.loglevel 2
@@ -33,6 +35,22 @@ service keymaster-3-0 /vendor/bin/hw/android.hardware.keymaster@3.0-service.trus
     user root
     group root drmrpc
     seclabel u:r:recovery:s0
+
+service keymaster_attestation-1-1 /vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
+    interface vendor.mediatek.hardware.keymaster_attestation@1.1::IKeymasterDevice default
+    class hal
+    user system
+    group system
+
+service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+    class hal
+    user system
+    group system
 
 service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
     user root
