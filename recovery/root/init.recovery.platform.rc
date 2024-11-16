@@ -41,11 +41,13 @@ service keymaster_attestation-1-1 /vendor/bin/hw/vendor.mediatek.hardware.keymas
     class hal
     user system
     group system
+    disabled
 
 service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     class hal
     user system
     group system
+    disabled
 
 service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
     user root
@@ -88,10 +90,9 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 # 07407000000000000000000000000000.drbin : sensor
 # 06090000000000000000000000000000.drbin : drm keyinstall
 
-on property:ro.crypto.state=encrypted
+on property:recovery.service=1
     start vendor.gatekeeper-1-0
     start keymaster_attestation-1-1
-    start keymaster-3-0
 
 on property:ro.crypto.state=unsupported
     stop mobicore
