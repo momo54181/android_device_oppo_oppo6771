@@ -97,6 +97,7 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 on property:recovery.service=1
     start vendor.gatekeeper-1-0
     start keymaster_attestation-1-1
+    start hal_cryptoeng_oppo
 
 on property:ro.crypto.state=unsupported
     stop mobicore
