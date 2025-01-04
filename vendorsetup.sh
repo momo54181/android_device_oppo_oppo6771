@@ -5,6 +5,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-COMMON_LUNCH_CHOICES += "omni_PACM00-userdebug"
-COMMON_LUNCH_CHOICES += "omni_PACM00-eng"
-COMMON_LUNCH_CHOICES += "omni_PACM00-user"
+add_lunch_combo omni_PACM00-user
+add_lunch_combo omni_PACM00-userdebug
+add_lunch_combo omni_PACM00-eng
