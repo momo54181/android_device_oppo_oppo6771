@@ -11,4 +11,3 @@ PRODUCT_MAKEFILES := \
 COMMON_LUNCH_CHOICES := \
     pb_PACM00-user \
     pb_PACM00-userdebug \
-    pb_PACM00-eng
