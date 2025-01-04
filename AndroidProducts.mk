@@ -8,6 +8,6 @@
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/pb_PACM00.mk
 
-COMMON_LUNCH_CHOICES := \
-    pb_PACM00-user \
-    pb_PACM00-userdebug \
+COMMON_LUNCH_CHOICES += pb_PACM00-user
+COMMON_LUNCH_CHOICES += pb_PACM00-userdebug
+COMMON_LUNCH_CHOICES += pb_PACM00-eng
