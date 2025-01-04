@@ -10,13 +10,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/pb/config/common.mk)
 
 # Inherit from PACM00 device
 $(call inherit-product, device/oppo/PACM00/device.mk)
 
 PRODUCT_DEVICE := PACM00
-PRODUCT_NAME := omni_PACM00
+PRODUCT_NAME := pb_PACM00
 PRODUCT_BRAND := OPPO
 PRODUCT_MODEL := OPPO R15
 PRODUCT_MANUFACTURER := OPPO

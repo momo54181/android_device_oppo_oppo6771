@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_PACM00.mk
+    $(LOCAL_DIR)/pb_PACM00.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_PACM00-user \
-    omni_PACM00-userdebug \
-    omni_PACM00-eng
+    pb_PACM00-user \
+    pb_PACM00-userdebug \
+    pb_PACM00-eng
